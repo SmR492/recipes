@@ -1,0 +1,8 @@
+{
+    "bundles": {
+        "Smr492\\AuthBundle\\Smr492AuthBundle": ["all"]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    }
+}

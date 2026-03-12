@@ -1,0 +1,6 @@
+smr492_auth:
+    user_class: App\Entity\User
+    login_success_route: app_member_dashboard
+    registration_success_route: api_entrypoint
+    from_email: noreply@watt-werk.eu
+    from_name: WattWerk

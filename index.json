@@ -1,0 +1,15 @@
+{
+    "manifests": {
+        "smr492/auth-bundle": {
+            "manifest": {
+                "bundles": {
+                    "Smr492\\AuthBundle\\Smr492AuthBundle": ["all"]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "origin": "smr492/auth-bundle:1.0@github.com/smr492/recipes"
+        }
+    }
+}

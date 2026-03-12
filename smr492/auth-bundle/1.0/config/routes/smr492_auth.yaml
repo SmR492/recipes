@@ -1,0 +1,3 @@
+smr492_auth:
+    resource: '@Smr492AuthBundle/src/Controller/'
+    type: attribute
