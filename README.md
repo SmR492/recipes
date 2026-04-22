@@ -11,7 +11,7 @@ In der `composer.json` der Host-App (z.B. CarClubManager, api-base, Auftrags-Coc
     "extra": {
         "symfony": {
             "endpoint": [
-                "https://api.github.com/repos/smr492/recipes/contents/index.json",
+                "https://raw.githubusercontent.com/SmR492/recipes/main/index.json",
                 "flex://defaults"
             ]
         }
@@ -19,9 +19,11 @@ In der `composer.json` der Host-App (z.B. CarClubManager, api-base, Auftrags-Coc
 }
 ```
 
-Flex zieht den `index.json` und fällt für alle nicht gelisteten Pakete auf den offiziellen Flex-Endpoint zurück.
+Flex zieht den `index.json` direkt vom GitHub-Raw-Endpoint und fällt für alle nicht gelisteten Pakete auf den offiziellen Flex-Endpoint zurück.
 
 > Hinweis: Bei **Composer path-repositories** (lokale `../auth-bundle`-Pfade) wendet Flex **keine** Custom-Recipes an – siehe `traces/anti-patterns/flex-local-recipe-assumption.md` im `projects`-Wiki. In dem Fall die Dateien aus `smr492/<bundle>/<version>/` **manuell** in die Host-App kopieren.
+>
+> Der `https://api.github.com/repos/.../contents/...`-Endpoint funktioniert **nicht** — er liefert JSON mit base64-encoded Inhalt statt der rohen Datei. Immer `raw.githubusercontent.com` verwenden.
 
 ## Aktueller Katalog
 
