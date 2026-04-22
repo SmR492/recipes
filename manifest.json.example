@@ -1,0 +1,13 @@
+{
+    "bundles": {
+        "Vendor\\Bundle\\VendorBundle": ["all"]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    },
+    "post-install-output": [
+        "Next steps:",
+        "  * Review <fg=yellow>config/packages/<bundle>.yaml</> and adjust to your app defaults.",
+        "  * Run <fg=yellow>bin/console doctrine:migrations:diff</> if this bundle ships entities."
+    ]
+}
