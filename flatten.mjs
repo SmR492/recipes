@@ -59,7 +59,9 @@ for (const vendor of VENDORS) {
 const index = {
   recipes,
   branch: BRANCH,
-  is_contrib: true,
+  // eigener, vertrauter Recipe-Server → non-contrib, damit Flex die Recipes ohne
+  // allow-contrib/Prompt automatisch anwendet (sonst „IGNORING").
+  is_contrib: false,
   _links: {
     repository: 'github.com/SmR492/recipes',
     origin_template: '{package}:{version}@github.com/SmR492/recipes',
