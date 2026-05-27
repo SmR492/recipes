@@ -65,18 +65,22 @@ Ein Recipe-Tree wird über `manifest.json` referenziert; die Felder sind mit dem
 }
 ```
 
-Die Einträge im Top-Level-`index.json` verknüpfen Paketnamen mit einer Recipe-Version:
+### Format (wichtig): modernes Flex-Endpoint-Format, generiert via `flatten.mjs`
 
-```json
-{
-    "manifests": {
-        "smr492/auth-bundle": {
-            "manifest": { "bundles": {...}, "copy-from-recipe": {...} },
-            "origin": "smr492/auth-bundle:1.0@github.com/smr492/recipes"
-        }
-    }
-}
+> **Empirisch verifiziert (Issue #4):** Das alte flache `{"manifests": {…}}`-Format wird von Flex bei einem **konfigurierten** `extra.symfony.endpoint` **ignoriert** (Flex fällt auf eine auto-generierte Recipe zurück → nur Bundle-Registrierung, keine Config-Dateien). Ein konfigurierter Endpoint verlangt das **moderne** Format.
+
+Die `smr492/<bundle>/<version>/`-Ordner sind die **Quelle**. Der Generator `flatten.mjs` erzeugt daraus die von Flex konsumierten Dateien:
+
+- **`index.json`** — Endpoint-Index: `recipes` (Paket→Versionen) + `_links` (mit `recipe_template_relative`, branch-agnostisch) + `branch` + `is_contrib: false`.
+- **`<paket_dotted>.<version>.json`** — Per-Recipe-Manifest **inkl. `files`** (Dateiinhalte als Zeilen-Array) + `ref`.
+
+```bash
+node flatten.mjs main      # erzeugt index.json + <paket>.<version>.json aus smr492/*/*/
 ```
+
+Wichtig für Consumer:
+- **`is_contrib: false`** — eigener vertrauter Server; Flex wendet die Recipes ohne `allow-contrib`/Prompt an.
+- Recipes matchen nur **getaggte** Releases (z.B. `1.0.0`), **nicht** Dev-Branch-Installs (`dev-…`) — Flex wertet Dev-Versionen kleiner als jede numerische Recipe-Version.
 
 ## Neues Recipe hinzufügen
 
@@ -86,14 +90,8 @@ Die Einträge im Top-Level-`index.json` verknüpfen Paketnamen mit einer Recipe-
    - `copy-from-recipe` → lokale Pfade (z.B. `config/`) auf Flex-Platzhalter (`%CONFIG_DIR%/`) mappen.
    - Optional `post-install-output` für Next-Steps-Hinweise.
 3. Unter `config/packages/<bundle>.yaml` und ggf. `config/routes/<bundle>.yaml` die Host-App-Defaults ablegen.
-4. Top-Level `index.json` ergänzen:
-   ```json
-   "smr492/<bundle>": {
-       "manifest": { "bundles": { "Vendor\\Bundle\\VendorBundle": ["all"] }, "copy-from-recipe": { "config/": "%CONFIG_DIR%/" } },
-       "origin": "smr492/<bundle>:<version>@github.com/smr492/recipes"
-   }
-   ```
-5. Änderungen nach `main` mergen – der GitHub raw-Endpoint ist sofort aktiv.
+4. `node flatten.mjs main` ausführen → regeneriert `index.json` + `<paket_dotted>.<version>.json` (nicht von Hand pflegen).
+5. Änderungen nach `main` mergen – der GitHub raw-Endpoint ist sofort aktiv. Consumer ziehen die getaggte Release-Version (`composer require smr492/<bundle>:^1.0`).
 
 ## Versionsstrategie
 
