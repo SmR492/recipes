@@ -1,26 +1,18 @@
 {
-    "manifests": {
-        "smr492/neuro-symbolic-ai-bundle": {
-            "manifest": {
-                "bundles": {
-                    "SmR492\\NeuroSymbolicAiBundle\\NeuroSymbolicAiBundle": ["all"]
-                },
-                "copy-from-recipe": {
-                    "config/": "%CONFIG_DIR%/"
-                }
-            },
-            "origin": "smr492/neuro-symbolic-ai-bundle:1.0@github.com/smr492/recipes"
-        },
-        "smr492/auth-bundle": {
-            "manifest": {
-                "bundles": {
-                    "Smr492\\AuthBundle\\Smr492AuthBundle": ["all"]
-                },
-                "copy-from-recipe": {
-                    "config/": "%CONFIG_DIR%/"
-                }
-            },
-            "origin": "smr492/auth-bundle:1.0@github.com/smr492/recipes"
-        }
+    "recipes": {
+        "smr492/auth-bundle": [
+            "1.0"
+        ],
+        "smr492/neuro-symbolic-ai-bundle": [
+            "1.0"
+        ]
+    },
+    "branch": "develop",
+    "is_contrib": true,
+    "_links": {
+        "repository": "github.com/SmR492/recipes",
+        "origin_template": "{package}:{version}@github.com/SmR492/recipes",
+        "recipe_template": "https://raw.githubusercontent.com/SmR492/recipes/develop/{package_dotted}.{version}.json",
+        "recipe_template_relative": "{package_dotted}.{version}.json"
     }
 }
