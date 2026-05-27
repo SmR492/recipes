@@ -1,0 +1,8 @@
+{
+    "bundles": {
+        "SmR492\\NeuroSymbolicAiBundle\\NeuroSymbolicAiBundle": ["all"]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/"
+    }
+}

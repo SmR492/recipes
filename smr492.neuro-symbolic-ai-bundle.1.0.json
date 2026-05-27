@@ -1,0 +1,40 @@
+{
+    "manifests": {
+        "smr492/neuro-symbolic-ai-bundle": {
+            "manifest": {
+                "bundles": {
+                    "SmR492\\NeuroSymbolicAiBundle\\NeuroSymbolicAiBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/neuro_symbolic_ai.yaml": {
+                    "contents": [
+                        "neuro_symbolic_ai:",
+                        "    # Anzahl Bestätigungen, bis ein PENDING-Fakt zu CONFIRMED promotet wird.",
+                        "    # quarantine_threshold: 2",
+                        "    # Multiplikativer Faktor auf impact_score je Decay-Zyklus (0.0–1.0).",
+                        "    # decay_factor: 0.95",
+                        "    # Tage Inaktivität vor Decay.",
+                        "    # decay_interval_days: 7",
+                        "    # Maximale Iterationen des Forward-Chaining.",
+                        "    # max_inference_depth: 50",
+                        "    # Maximale Zahl jüngster Nodes im Working-Memory-Kontext.",
+                        "    # working_memory_context_limit: 20",
+                        "    # URLs/Feeds für den passiven Crawler.",
+                        "    # crawler_sources: []",
+                        "    # relayed_by-Label dieses Knotens beim nsai:graph:export (Graph-Föderation, Phase 2).",
+                        "    federation_self_peer_id: 'peer:php-local'",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "2acb2e70e6fc"
+        }
+    }
+}
