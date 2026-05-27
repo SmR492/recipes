@@ -30,6 +30,7 @@ Flex zieht den `index.json` direkt vom GitHub-Raw-Endpoint und fällt für alle 
 | Paket | Recipe-Version | Host-App-Bundle-Klasse | Status |
 |---|---|---|---|
 | `smr492/auth-bundle` | `1.0` | `Smr492\AuthBundle\Smr492AuthBundle` | aktiv |
+| `smr492/neuro-symbolic-ai-bundle` | `1.0` | `SmR492\NeuroSymbolicAiBundle\NeuroSymbolicAiBundle` | aktiv |
 
 ## Struktur
 
