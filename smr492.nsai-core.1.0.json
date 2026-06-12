@@ -1,0 +1,15 @@
+{
+    "manifests": {
+        "smr492/nsai-core": {
+            "manifest": {
+                "bundles": {
+                    "SmR492\\Nsai\\Core\\NsaiCoreBundle": [
+                        "all"
+                    ]
+                }
+            },
+            "files": {},
+            "ref": "f7c31faccc25"
+        }
+    }
+}

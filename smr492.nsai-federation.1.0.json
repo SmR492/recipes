@@ -1,0 +1,15 @@
+{
+    "manifests": {
+        "smr492/nsai-federation": {
+            "manifest": {
+                "bundles": {
+                    "SmR492\\Nsai\\Federation\\NsaiFederationBundle": [
+                        "all"
+                    ]
+                }
+            },
+            "files": {},
+            "ref": "8c7039523ae5"
+        }
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "bundles": {
+        "SmR492\\Nsai\\Mcp\\NsaiMcpBundle": ["all"]
+    },
+    "copy-from-recipe": {
+        "config/": "%CONFIG_DIR%/",
+        "templates/": "%TWIG_DIR%/"
+    }
+}

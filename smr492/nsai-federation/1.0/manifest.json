@@ -1,0 +1,5 @@
+{
+    "bundles": {
+        "SmR492\\Nsai\\Federation\\NsaiFederationBundle": ["all"]
+    }
+}

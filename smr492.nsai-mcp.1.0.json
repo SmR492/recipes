@@ -1,0 +1,47 @@
+{
+    "manifests": {
+        "smr492/nsai-mcp": {
+            "manifest": {
+                "bundles": {
+                    "SmR492\\Nsai\\Mcp\\NsaiMcpBundle": [
+                        "all"
+                    ]
+                },
+                "copy-from-recipe": {
+                    "config/": "%CONFIG_DIR%/",
+                    "templates/": "%TWIG_DIR%/"
+                }
+            },
+            "files": {
+                "config/packages/nsai_mcp.yaml": {
+                    "contents": [
+                        "# Von der Recipe in den Host kopiert → sofort anpassbar (on the fly).",
+                        "nsai_mcp:",
+                        "    research:",
+                        "        enabled: auto          # auto = an, sobald symfony/ai-agent installiert ist",
+                        "    layout: '@NsaiMcp/base.html.twig'   # eigenes Host-Base-Template eintragen",
+                        "    theme:",
+                        "        bg: '#0f1115'",
+                        "        fg: '#e7e9ee'",
+                        "        accent: '#4f8cff'",
+                        "        warn: '#ffb347'",
+                        "        radius: '10px'",
+                        "        font: 'system-ui, sans-serif'",
+                        ""
+                    ],
+                    "executable": false
+                },
+                "templates/bundles/NsaiMcpBundle/base.html.twig": {
+                    "contents": [
+                        "{# Starter-Override im Host (von der Recipe kopiert). Eigenes Design hier eintragen;",
+                        "   ersetzt das Bundle-Default vollständig. #}",
+                        "{% extends '@!NsaiMcp/base.html.twig' %}",
+                        ""
+                    ],
+                    "executable": false
+                }
+            },
+            "ref": "e6b6e7cc48e4"
+        }
+    }
+}

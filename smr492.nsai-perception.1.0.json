@@ -1,0 +1,15 @@
+{
+    "manifests": {
+        "smr492/nsai-perception": {
+            "manifest": {
+                "bundles": {
+                    "SmR492\\Nsai\\Perception\\NsaiPerceptionBundle": [
+                        "all"
+                    ]
+                }
+            },
+            "files": {},
+            "ref": "c6e39e81157a"
+        }
+    }
+}
